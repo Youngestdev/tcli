@@ -13,6 +13,13 @@ yargs
     describe: "Specifies if full details should be fetched",
     type: "boolean"
   })
+  .option("to-file", {
+    alias: "tf",
+    demandOption: true,
+    default: false,
+    describe: "Specifies if file should be created with user data",
+    type: "boolean"
+  })
   .demandOption(
     ["username"],
     `Please provide the <username> of the user you want to fetch \n

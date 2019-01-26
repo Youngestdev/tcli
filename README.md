@@ -29,6 +29,17 @@ or with **npx**
 > npx trieve --username unicodeveloper or npx trieve --username "username" --full
 
 ```
+**Create a file containing user data**
+
+```
+npx trieve --username unicodeveloper --to-file
+```
+or using an alias
+
+```
+npx trieve --username unicodeveloper --tf
+```
+
 
 ## Contributing
 
