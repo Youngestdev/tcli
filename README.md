@@ -32,9 +32,10 @@ or with **npx**
 
 ## Contributing
 
-Feel free to open an issue or PR! :rocket
+Feel free to open an issue or PR! 🚀
 
 ## Contributors
 
-+ Abdulazeez Abdulazeez Adeshina - @Youngestdev
-+ Marvin Jude - @marvinjude
++ Abdulazeez Abdulazeez Adeshina -[@kvng_zeez](www.twitter.com/kvng_zeez) 
+
++ Marvin Jude  - [@marvinjudehk](www.twitter.com/marvinjudehk)
