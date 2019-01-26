@@ -4,6 +4,8 @@ const Table = require("cli-table");
 const client = require("./lib/client");
 const Spinner = require("cli-spinner").Spinner;
 const isoLangConverter = require("iso-language-converter")
+const yargs = require("yargs");
+
 
 /**Human Readable Error Messages */
 const ERROR_MESSAGES = {
@@ -11,7 +13,7 @@ const ERROR_MESSAGES = {
   //TODO: ADD OTHERS
 };
 
-require("yargs")
+yargs
   .usage("$0 <cmd> [args]")
   .option("f", {
     alias: "full",
