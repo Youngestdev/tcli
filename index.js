@@ -12,7 +12,7 @@ require("yargs")
     "$0 [username]",
     "Trieve - retrieve a twitter user's data!",
     yargs => {
-      yargs.positional("username", {
+      yargs.positional("--username", {
         type: "string",
         alias: "u",
         describe:
