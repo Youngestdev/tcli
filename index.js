@@ -1,32 +1,8 @@
 #!/usr/bin/env node
+
 var Table = require("cli-table");
 const client = require("./client");
 const Spinner = require("cli-spinner").Spinner;
-
-/**Future improvement to code */
-
-// const FULL = [
-//   "created_at",
-//   "name",
-//   "screen_name",
-//   "followers_count",
-//   "description",
-//   "friends_count",
-//   "favourites_count",
-//   "statuses_count",
-//   "statuses_count",
-//   "lang",
-//   "listed_count"
-// ];
-
-// const BASIC = [
-//   "created_at",
-//   "name",
-//   "screen_name",
-//   "followers_count",
-//   "description",
-//   "friends_count"
-// ];
 
 require("yargs")
   .usage("$0 <cmd> [args]")
@@ -45,10 +21,7 @@ require("yargs")
     },
 
     function(argv) {
-      /**Debugging */
-      // console.log(argv);
-
-      let params = { screen_name: argv.username };
+      var params = { screen_name: argv.username };
       var table = new Table();
       var customSpinner = spinner(
         `Wait while i fetch details for ${argv.username} 🚀`
@@ -64,21 +37,23 @@ require("yargs")
               { Username: user[`screen_name`] },
               { Name: user[`name`] },
               { Location: user[`location`] },
-              // { description: user[`description`] },
+              { Biography: user[`description`] },
               { Followers: user[`followers_count`] },
               { Following: user[`friends_count`] },
               { Favourites: user[`favourites_count`] },
               { Joined: user[`created_at`] },
               { Language: user[`lang`] },
+              { TweetCount: user['statuses_count'] },
+              { Lists: user['listed_count']}
             );
           } else {
             table.push(
               { Username: user[`screen_name`] },
               { Name: user[`name`] },
-              { Location: user[`location`] },
-              // { description: user[`description`] },
+              { Biography: user[`description`] },
               { Followers_Count: user[`followers_count`] },
-              { Followers: user[`followers_count`] },
+              { Following: user[`friends_count`] },
+              { Additional_Details: `To get the full data on ${user['screen_name']}, use the --full option` }
             );
           }
 
