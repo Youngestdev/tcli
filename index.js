@@ -2,6 +2,7 @@
 
 const yargs = require("yargs");
 const handler = require("./lib/handler")
+const terminalWidth = yargs.terminalWidth();
 
 yargs
   .usage("$0 <cmd> [args]")
@@ -29,7 +30,12 @@ yargs
         describe: "The username of the twitter user whose details is to be retrieved"
       });
     },
-
-    handler
+    /**Also pass terminal width to handler */
+    (argv) => handler({
+      argv,
+      terminalWidth
+    })
   )
   .help().argv;
+
+console.log(yargs.terminalWidth())
