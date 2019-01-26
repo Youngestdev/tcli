@@ -6,14 +6,20 @@ const Spinner = require("cli-spinner").Spinner;
 
 require("yargs")
   .usage("$0 <cmd> [args]")
-  .option('f', {
-    alias: 'full',
+  .option("f", {
+    alias: "full",
     demandOption: true,
     default: false,
-    describe: 'Specifies if full details should be fetched',
-    type: 'boolean'
+    describe: "Specifies if full details should be fetched",
+    type: "boolean"
   })
-  .demandOption(["username"]) /** Username is required */
+  .demandOption(
+    ["username"],
+    `Please provide the <username> of the user you want to fetch \n
+     For Example: 
+     \t trieve marvinjudehk
+    `
+  ) /** Username is required */
   .command(
     "$0 [username]",
     "Trieve - retrieve a twitter user's data!",
@@ -49,8 +55,8 @@ require("yargs")
               { Favourites: user[`favourites_count`] },
               { Joined: user[`created_at`] },
               { Language: user[`lang`] },
-              { TweetCount: user['statuses_count'] },
-              { Lists: user['listed_count']}
+              { TweetCount: user["statuses_count"] },
+              { Lists: user["listed_count"] }
             );
           } else {
             table.push(
@@ -59,7 +65,11 @@ require("yargs")
               { Biography: user[`description`] },
               { Followers_Count: user[`followers_count`] },
               { Following: user[`friends_count`] },
-              { Additional_Details: `To get the full data on ${user['screen_name']}, use the --full option` }
+              {
+                Additional_Details: `To get the full data on ${
+                  user["screen_name"]
+                }, use the --full option`
+              }
             );
           }
 
@@ -87,5 +97,3 @@ function spinner(msg) {
     }
   });
 }
-
-
