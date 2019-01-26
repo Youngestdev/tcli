@@ -19,14 +19,14 @@ Trieve is a simple command line tool that gets the details of a Twitter user fro
 ## Using trieve
 
 ```bash
-trieve --username "username" 
+trieve --username "username" or trieve --username "username" --full
 ```
 
 or with **npx**
 
 ```bash
 
-> npx trieve --username unicodeveloper
+> npx trieve --username unicodeveloper or npx trieve --username "username" --full
 
 ```
 
