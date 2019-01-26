@@ -6,7 +6,13 @@ const Spinner = require("cli-spinner").Spinner;
 
 require("yargs")
   .usage("$0 <cmd> [args]")
-  .boolean("full") /**To specify if full data should be fetched or not */
+  .option('f', {
+    alias: 'full',
+    demandOption: true,
+    default: false,
+    describe: 'Specifies if full details should be fetched',
+    type: 'boolean'
+  })
   .demandOption(["username"]) /** Username is required */
   .command(
     "$0 [username]",
