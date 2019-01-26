@@ -59,6 +59,7 @@ require("yargs")
               { Biography: user[`description`] },
               { Followers: user[`followers_count`] },
               { Following: user[`friends_count`] },
+              { Verified: user[`verified`] ? `✔`: `✖` },
               { Favourites: user[`favourites_count`] },
               { Joined: user[`created_at`] },
               { Language: isoLangConverter(user[`lang`]) },
@@ -70,6 +71,7 @@ require("yargs")
               { Username: user[`screen_name`] },
               { Name: user[`name`] },
               { Biography: user[`description`] },
+              { Verified: user[`verified`] ? `✔`: `✖` },
               { Followers_Count: user[`followers_count`] },
               { Following: user[`friends_count`] },
               {
