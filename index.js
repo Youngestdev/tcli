@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var Table = require("cli-table");
-const client = require("./client");
+const client = require("./lib/client");
 const Spinner = require("cli-spinner").Spinner;
 
 require("yargs")
@@ -9,8 +9,8 @@ require("yargs")
   .boolean("full") /**To specify if full data should be fetched or not */
   .demandOption(["username"]) /** Username is required */
   .command(
-    "trieve [username]",
-    "Tcli - retrieve a twitter user's data!",
+    "$0 [username]",
+    "Trieve - retrieve a twitter user's data!",
     yargs => {
       yargs.positional("username", {
         type: "string",
