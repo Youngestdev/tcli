@@ -4,6 +4,12 @@ var Table = require("cli-table");
 const client = require("./lib/client");
 const Spinner = require("cli-spinner").Spinner;
 
+/**Human Readable Error Messages */
+const ERROR_MESSAGES = {
+  ENOTFOUND: "Make Sure You have an Internet Connection"
+  //TODO: ADD OTHERS
+};
+
 require("yargs")
   .usage("$0 <cmd> [args]")
   .option("f", {
@@ -36,7 +42,7 @@ require("yargs")
       var params = { screen_name: argv.username };
       var table = new Table();
       var customSpinner = spinner(
-        `Wait while i fetch details for ${argv.username} 🚀`
+        `Wait while i fetch ${argv.f === true ? `Full` : `Basic`} details for ${argv.username} 🚀`
       );
 
       customSpinner.start();
@@ -82,7 +88,17 @@ require("yargs")
           /**Stop the spinner */
           customSpinner.stop();
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+          /**Also Stop spinner When error occurs */
+          customSpinner.stop();
+
+          process.stdout.write("\n \n");
+
+          /**Log Error Message */
+          console.error(`An error occured, ${ERROR_MESSAGES[error.code]}`);
+
+          process.stdout.write("\n \n");
+        });
     }
   )
   .help().argv;
