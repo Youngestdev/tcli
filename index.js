@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-var Table = require("cli-table");
+const Table = require("cli-table");
 const client = require("./lib/client");
 const Spinner = require("cli-spinner").Spinner;
+const isoLangConverter = require("iso-language-converter")
 
 /**Human Readable Error Messages */
 const ERROR_MESSAGES = {
@@ -60,7 +61,7 @@ require("yargs")
               { Following: user[`friends_count`] },
               { Favourites: user[`favourites_count`] },
               { Joined: user[`created_at`] },
-              { Language: user[`lang`] },
+              { Language: isoLangConverter(user[`lang`]) },
               { TweetCount: user["statuses_count"] },
               { Lists: user["listed_count"] }
             );
