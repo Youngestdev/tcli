@@ -44,5 +44,3 @@ yargs
     })
   )
   .help().argv;
-
-console.log(yargs.terminalWidth())
