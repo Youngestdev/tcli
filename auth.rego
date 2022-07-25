@@ -6,7 +6,8 @@ default allow = false
 
 allow {
   input.request_path == "v1/collections/obs"
-  input.company == "osgeo"
-  input.request_method == "DELETE"
+  input.company == "geobeyond"
+  input.request_method == "POST"
+  input.groupname == ""
 }
 
