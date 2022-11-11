@@ -15,7 +15,7 @@ allow {
 }
 
 allow {
-  input.request_path == "v1/collections/obs"
+  
   input.company == "geobeyond"
 }
 
