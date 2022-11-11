@@ -9,13 +9,15 @@ allow {
   input.request_path[0] == "v1" 
   input.request_path[1] == "collections" 
   
-  input.request_path[2] != "obs"
   input.company == data.items[_].company
   input.request_method == "GET"
 }
 
 allow {
-  input.request_path == "v1/collection/obs"
+  input.request_path[0] == "v1" 
+  input.request_path[1] == "collections" 
+  input.request_path[2] == "obs" 
+  
   input.company == "geobeyond"
 }
 
